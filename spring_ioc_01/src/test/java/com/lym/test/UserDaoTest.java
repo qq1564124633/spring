@@ -20,7 +20,6 @@ public class UserDaoTest {
         //输出对象地址
         System.out.println(userDao1);
         userDao1.save();
-        System.out.println("123");
     }
 
     @Test
