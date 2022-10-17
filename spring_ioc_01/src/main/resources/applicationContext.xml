@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--scope:指对象的作用范围;
+    singleton 默认值，单例的;
+    prototype 多例的-->
+    <!--init-method：指定类中的初始化方法名称
+    destroy-method：指定类中销毁方法名称
+    -->
+    <!--无参构造实例化-->
+    <bean id="userDao1" class="com.lym.dao.impl.UserDaoImpl">
+        <property name="name" value="lym"></property>
+        <property name="age" value="20"></property>
+        <property name="strList">
+            <list>
+                <value>123</value>
+                <value>aaa</value>
+                <value>bbb</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>123</value>
+                <value>aaa</value>
+                <value>bbb</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="u1" value-ref="user1"></entry>
+                <entry key="u2" value-ref="user2"></entry>
+                <entry key="u3" value-ref="user3"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="p1">p1</prop>
+                <prop key="p2">p2</prop>
+                <prop key="p3">p3</prop>
+            </props>
+        </property>
+    </bean>
+    <!--        &lt;!&ndash;工厂静态方法实例化&ndash;&gt;-->
+    <!--        <bean id="userDao2" class="com.lym.factory.StaticFactory" factory-method="getUserDao">-->
+
+    <!--        </bean>-->
+    <!--        <bean id="factory" class="com.lym.factory.DynamicFactory">-->
+
+    <!--        </bean>-->
+    <!--        &lt;!&ndash;工厂方法实例化&ndash;&gt;-->
+    <!--        <bean id="userDao3" factory-bean="factory" factory-method="getUserDao">-->
+
+    <!--        </bean>-->
+
+    <!--        <bean id="userService" class="com.lym.service.serviceImpl.UserServiceImpl">-->
+    <!--            <property name="userDao" ref="userDao1"></property>-->
+    <!--        </bean>-->
+    <bean id="userService" class="com.lym.service.serviceImpl.UserServiceImpl">
+        <constructor-arg name="userDao" ref="userDao1"></constructor-arg>
+    </bean>
+    <bean id="user1" class="com.lym.entity.User">
+        <property name="name" value="叶林明"></property>
+        <property name="address" value="攸县"></property>
+    </bean>
+    <bean id="user2" class="com.lym.entity.User">
+        <property name="name" value="沈波"></property>
+        <property name="address" value="湘阴县"></property>
+    </bean>
+    <bean id="user3" class="com.lym.entity.User">
+        <property name="name" value="刘宇"></property>
+        <property name="address" value="安化县"></property>
+    </bean>
+</beans>
