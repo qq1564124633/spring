@@ -10,7 +10,7 @@
     destroy-method：指定类中销毁方法名称
     -->
     <!--无参构造实例化-->
-    <bean id="userDao1" class="com.lym.dao.impl.UserDaoImpl">
+    <bean id="userDao1" class="com.lym.dao.impl.UserDaoImpl" init-method="init" destroy-method="destroy">
         <property name="name" value="lym"></property>
         <property name="age" value="20"></property>
         <property name="strList">
