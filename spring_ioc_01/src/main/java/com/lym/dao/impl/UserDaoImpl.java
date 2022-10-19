@@ -21,6 +21,8 @@ public class UserDaoImpl implements UserDao {
     private Set<String> set;
     private Map<String, User> map;
     private Properties properties;
+    private Set<User> userSet;
+    private List<User> userList;
 
     public UserDaoImpl() {
         System.out.println("UserDaoImpl无参构造");
@@ -86,6 +88,22 @@ public class UserDaoImpl implements UserDao {
         this.age = age;
     }
 
+    public Set<User> getUserSet() {
+        return userSet;
+    }
+
+    public void setUserSet(Set<User> userSet) {
+        this.userSet = userSet;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
     public void init() {
         System.out.println("初始化方法");
     }
@@ -94,6 +112,7 @@ public class UserDaoImpl implements UserDao {
         System.out.println("销毁方法");
     }
 
+
     @Override
     public void save() {
         System.out.println(name + "------" + age);
@@ -101,6 +120,8 @@ public class UserDaoImpl implements UserDao {
         System.out.println(set);
         System.out.println(map);
         System.out.println(properties);
+        System.out.println(userList);
+        System.out.println(userSet);
         System.out.println("我爱莉莉安");
     }
 }

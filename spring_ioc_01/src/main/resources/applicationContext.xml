@@ -11,13 +11,19 @@
     -->
     <!--无参构造实例化-->
     <bean id="userDao1" class="com.lym.dao.impl.UserDaoImpl" init-method="init" destroy-method="destroy">
-        <property name="name" value="lym"></property>
-        <property name="age" value="20"></property>
+        <property name="name" value="lym"/>
+        <property name="age" value="20"/>
         <property name="strList">
             <list>
                 <value>123</value>
                 <value>aaa</value>
                 <value>bbb</value>
+            </list>
+        </property>
+        <property name="userList">
+            <list>
+                <ref bean="user1"/>
+                <ref bean="user2"/>
             </list>
         </property>
         <property name="set">
@@ -27,11 +33,17 @@
                 <value>bbb</value>
             </set>
         </property>
+        <property name="userSet">
+            <set>
+                <ref bean="user1"/>
+                <ref bean="user2"/>
+            </set>
+        </property>
         <property name="map">
             <map>
-                <entry key="u1" value-ref="user1"></entry>
-                <entry key="u2" value-ref="user2"></entry>
-                <entry key="u3" value-ref="user3"></entry>
+                <entry key="u1" value-ref="user1"/>
+                <entry key="u2" value-ref="user2"/>
+                <entry key="u3" value-ref="user3"/>
             </map>
         </property>
         <property name="properties">
@@ -58,18 +70,18 @@
     <!--            <property name="userDao" ref="userDao1"></property>-->
     <!--        </bean>-->
     <bean id="userService" class="com.lym.service.serviceImpl.UserServiceImpl">
-        <constructor-arg name="userDao" ref="userDao1"></constructor-arg>
+        <constructor-arg name="userDao" ref="userDao1"/>
     </bean>
     <bean id="user1" class="com.lym.entity.User">
-        <property name="name" value="叶林明"></property>
-        <property name="address" value="攸县"></property>
+        <property name="name" value="叶林明"/>
+        <property name="address" value="攸县"/>
     </bean>
     <bean id="user2" class="com.lym.entity.User">
-        <property name="name" value="沈波"></property>
-        <property name="address" value="湘阴县"></property>
+        <property name="name" value="沈波"/>
+        <property name="address" value="湘阴县"/>
     </bean>
     <bean id="user3" class="com.lym.entity.User">
-        <property name="name" value="刘宇"></property>
-        <property name="address" value="安化县"></property>
+        <property name="name" value="刘宇"/>
+        <property name="address" value="安化县"/>
     </bean>
 </beans>

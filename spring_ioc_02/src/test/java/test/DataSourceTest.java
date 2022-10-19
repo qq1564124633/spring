@@ -67,8 +67,9 @@ public class DataSourceTest {
             e.printStackTrace();
         }
     }
+
     @Test
-    public void test04(){
+    public void test04() {
         //手动使用spring配置文件测试druid数据源
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         DruidDataSource dataSource = (DruidDataSource) ac.getBean("druidDataSource");

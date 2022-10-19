@@ -31,10 +31,10 @@ public class UserDaoTest {
         //加载配置文件
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         //获取UserDao对象
-        UserDao userDao1 = (UserDao) app.getBean("userDao2");
+        UserDao userDao2 = (UserDao) app.getBean("userDao2");
         //输出对象地址
-        System.out.println(userDao1);
-        userDao1.save();
+        System.out.println(userDao2);
+        userDao2.save();
     }
 
     //实例工厂bean
@@ -43,10 +43,10 @@ public class UserDaoTest {
         //加载配置文件
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         //获取UserDao对象
-        UserDao userDao1 = (UserDao) app.getBean("userDao3");
+        UserDao userDao3 = (UserDao) app.getBean("userDao3");
         //输出对象地址
-        System.out.println(userDao1);
-        userDao1.save();
+        System.out.println(userDao3);
+        userDao3.save();
     }
 }
 
